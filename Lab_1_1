@@ -1,0 +1,37 @@
+import numpy as np
+matrix = np.array([[3, 7, 2, 9] , 
+                   [8, 3, 6, 7] , 
+                   [4, 8, 3, 5] , 
+                   [9, 6, 5, 4]]) 
+
+height =  np.array([8, 9, 6, 7])
+rows, cols = matrix.shape
+print("Start numbers")
+for i in range(rows):
+ print("A",i+1 , "   ",matrix[i])
+
+print("Height:" , height)
+print("")
+matrix2 = np.array([[0, 0, 0, 0] , 
+                    [0, 0, 0, 0] , 
+                    [0, 0, 0, 0] , 
+                    [0, 0, 0, 0]])
+for i in range(rows):
+ for j in range(cols):
+  matrix2[j , i] = matrix[j, i] * height[i]
+
+print("Second matrix:")
+for i in range(rows):
+ print(matrix2[i])
+
+ result = np.array([0 , 0 , 0 ,0])
+ for j in range(4):
+  result[j] = matrix2[j][0] + matrix2[j][1] + matrix2[j][2] + matrix2[j][3]
+
+print("")
+for i in range(1):
+ print(result)
+
+print("")
+
+print("Best alternative - " , np.max(result))

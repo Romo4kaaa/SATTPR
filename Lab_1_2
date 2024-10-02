@@ -1,0 +1,43 @@
+import numpy as np
+matrix =  np.array([[85, 30, 22, 0.65 , 6] , 
+                    [60, 20, 10, 0.6  , 7] , 
+                    [30, 12,  5, 0.45  , 5] , 
+                    [75, 24, 13, 0.7  , 8] , 
+                    [40, 15,  7, 0.55 , 7]]) 
+
+height =  np.array([7.0, 5, 6, 8, 6])
+rows, cols = matrix.shape
+for i in range(5):
+ print(matrix[i])
+print(height)
+matrix2 = np.array([[0.0, 0, 0, 0, 0] , 
+                    [0, 0, 0, 0, 0] , 
+                    [0, 0, 0, 0, 0] , 
+                    [0, 0, 0, 0, 0] ,
+                    [0, 0, 0, 0, 0]])
+
+for row in range(5):
+ for col in range(5):   
+   matrix2[col][row] = (matrix[col][row] - np.min(matrix[:, row]))/(np.max(matrix[:, row])-np.min(matrix[:, row]))
+
+for row in range(5):
+ matrix2[row][1] = (np.max(matrix[:, 1]) - matrix[row][1])/(np.max(matrix[:, 1]) - np.min(matrix[:, 1]))
+
+print("")
+for i in range(5):
+ print(matrix2[i])
+
+ Utility_function = np.array([0.0, 0, 0, 0, 0])
+
+ for i in range(5):
+  Utility_function[i] = matrix2[i][0] * height[0] + matrix2[i][1] * height[1] + matrix2[i][2] * height[2] + matrix2[i][3] * height[3] + matrix2[i][4] * height[4]
+
+for i in range(5):
+ np.max(Utility_function[i])
+ id_max = i
+
+print("Utility_function:")
+print(Utility_function)
+print()
+print("Best advokat - A" , id_max)
+print("Zagalna ocinka - " , np.max(Utility_function))
