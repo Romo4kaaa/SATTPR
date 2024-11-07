@@ -52,11 +52,15 @@ rows, cols = net_profit.shape
 
 for i in range(rows):
     for j in range(cols):
-     net_profit[i][j] =  (total_profit * Sold[i][j]) - (costs * purchase[i][j])
-print("Чистий прибуток")
-print(net_profit)
+        net_profit[i][j] =  (total_profit * Sold[i][j]) - (costs * purchase[i][j])
+
 for i in range(rows):
     average_profit[i] = (net_profit[i][0] * Probability[0]) + (net_profit[i][1] * Probability[1]) + (net_profit[i][2] * Probability[2])
 
-print("Середній прибуток")
-print(average_profit)
+def main():
+    print("Чистий прибуток")
+    print(net_profit)
+    print("Середній прибуток")
+    print(average_profit)
+
+main()
